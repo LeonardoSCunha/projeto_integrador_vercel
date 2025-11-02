@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "8a1786a0-6d09-49b0-a32e-b8c9eb837b57",
+		"name": "Paciente - Atividades",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10112148"
+	},
+	"item": [
+		{
+			"name": "Find All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/history-activitie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"history-activitie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cadastro_id\": \"3\",\r\n    \"codigo_atividade\": \"U02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/history-activitie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"history-activitie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"2\",\r\n    \"cadastro_id\": \"6\",\r\n    \"codigo_atividade\": \"U05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/history-activitie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"history-activitie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Codigo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/history-activitie/id?id=1",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"history-activitie",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/history-activitie?id=8",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"history-activitie"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

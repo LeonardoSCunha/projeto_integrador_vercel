@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "05abf8b6-c8f0-4a37-9982-b55f671ee437",
+		"name": "Paciente - Dependencias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10112148"
+	},
+	"item": [
+		{
+			"name": "Find All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/patient-dependencie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"patient-dependencie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cadastro_id\": \"1\",\r\n    \"codigo_dependencia\": \"D02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/patient-dependencie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"patient-dependencie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"2\",\r\n    \"cadastro_id\": \"6\",\r\n    \"codigo_dependencia\": \"D04\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/patient-dependencie/",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"patient-dependencie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Codigo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/patient-dependencie/id?id=2",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"patient-dependencie",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/patient-dependencie?id=4",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"patient-dependencie"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

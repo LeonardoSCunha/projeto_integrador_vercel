@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "ae616752-3e25-4438-b0b4-c78201370191",
+		"name": "Autenticação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10112148"
+	},
+	"item": [
+		{
+			"name": "Session",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"try {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  if (jsonData.access_token) {\r",
+							"    pm.globals.set(\"access_token\", jsonData.access_token);\r",
+							"  }\r",
+							"  if (jsonData.refresh_token) {\r",
+							"    pm.globals.set(\"refresh_token\", jsonData.refresh_token);\r",
+							"  }\r",
+							"} catch (e) {\r",
+							"  console.log(\"Response is not JSON:\", e);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"administrador\",\r\n    \"senha\": \"administrador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/authenticate/session",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"authenticate",
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/authenticate/find-token",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"authenticate",
+						"find-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"try {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  if (jsonData.access_token) {\r",
+							"    pm.globals.set(\"access_token\", jsonData.access_token);\r",
+							"  }\r",
+							"  if (jsonData.refresh_token) {\r",
+							"    pm.globals.set(\"refresh_token\", jsonData.refresh_token);\r",
+							"  }\r",
+							"} catch (e) {\r",
+							"  console.log(\"Response is not JSON:\", e);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"if (pm.globals.get(\"access_token\")) {\r",
+							"  pm.request.headers.add({\r",
+							"    key: \"Authorization\",\r",
+							"    value: \"Bearer \" + pm.globals.get(\"access_token\")\r",
+							"  });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"{{refresh_token}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}/authenticate/refresh-token",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"authenticate",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
